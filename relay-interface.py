@@ -14,6 +14,6 @@ except:
 	print('Please check the port!')
 	exit
 if args.switch == 1:
-	device.write('1')
+	device.write(b'1')
 else:
-	device.write('0')
+	device.write(b'0')

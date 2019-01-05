@@ -1,7 +1,9 @@
-#define RELAY 13 /* Use pin 10 instead */
+#define RELAY 10
+#define LED 13
 
 void setup() {
     pinMode(RELAY, OUTPUT);
+    pinMode(LED, OUTPUT);
     Serial.begin(9600);
 }
 
@@ -10,11 +12,11 @@ void loop() {
         char command = Serial.read();
         if (command == '1') {
             digitalWrite(RELAY, HIGH);
-            Serial.write('1');
+            digitalWrite(LED, HIGH);
         }
         else if (command == '0') {
             digitalWrite(RELAY, LOW);
-            Serial.write('0');
+            digitalWrite(LED, LOW);
         }
     }
 }
