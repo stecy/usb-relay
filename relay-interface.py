@@ -8,11 +8,12 @@ parser.add_argument('port', help='Port to use.  Example: /dev/ttyUSB1 or COM1')
 parser.add_argument('switch', type=int, help='1 to turn ON and 0 to turn OFF')
 args = parser.parse_args()
 
-device = serial.Serial(args.port, 9600)
-
-
+try:
+	device = serial.Serial(args.port, 9600)
+except:
+	print('Please check the port!')
+	exit
 if args.switch == 1:
-	device.write(1)
-	print('on')
+	device.write('1')
 else:
-	device.write(0)
+	device.write('0')
